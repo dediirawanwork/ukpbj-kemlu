@@ -1,0 +1,99 @@
+---
+title: Panduan PBJ
+layout: "base.njk"
+pagination: 
+    data: collections.panduan
+    size: 50
+    alias: panduans
+    reverse: true
+---
+        <div id="primary" class="sidebar-right">
+            <div class="container group">
+                <div class="row">
+                <!-- START CONTENT -->
+                    <div id="content-page" class="span9 content group">
+                    <h2 class="title">
+                        Panduan <span class="title-highlight">PBJ</span>
+                    </h2>
+                    <div class="search-box">
+                        <input type="text" id="search-input" class="form-control span9" placeholder="Search...">
+                    </div>
+                        <div class="page type-page status-publish hentry group">
+                            <div class="short-table white">
+                                <table style="width: 100%" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="align-left">Nama</th>
+                                            <th class="align-left">Tentang</th>
+                                            <th>Download</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr> {% for panduan in panduans %}{% include "rekap-panduan.njk" %} {% endfor %} </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- START SIDEBAR -->
+                    <div id="sidebar-shortcodes" class="span3 sidebar group">
+                         <div class="widget-first widget widget_nav_menu">
+                             <h3>Shortcodes</h3>
+                             <div class="menu-shortcodes-container">
+                                 <ul id="menu-shortcodes" class="menu">
+                                     <li>
+                                         <a href="shortcodes-alert-box-buttons.html">Alert box &amp; Buttons</a>
+                                     </li>
+                                    <li>
+                                        <a href="shortcodes-charts.html">Charts</a>
+                                    </li>
+                                    <li>
+                                        <a href="shortcodes-icon-section.html">Icon section</a>
+                                    </li>
+                                    <li>
+                                        <a href="shortcodes-media-widgets.html">Media &amp; Widgets</a>
+                                    </li>
+                                    <li>
+                                        <a href="shortcodes-mix-various.html">Mix &amp; Various</a>
+                                    </li>
+                                    <li>
+                                        <a href="shortcodes-table-box-prices.html">Table &amp; Box prices</a>
+                                    </li>
+                                    <li>
+                                        <a href="shortcodes-typography.html">Typography</a>
+                                    </li>
+                                </ul>
+                             </div>
+                         </div>
+                    </div>
+                    <!-- END SIDEBAR -->
+                </div>
+            </div>
+        </div>
+
+<script>
+  const searchInput = document.getElementById('search-input');
+  const rows = document.querySelectorAll('tbody tr');
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    rows.forEach(row => {
+      const columns = row.querySelectorAll('td');
+      let foundMatch = false;
+
+      columns.forEach(column => {
+        if (column.textContent.toLowerCase().includes(searchTerm)) {
+          foundMatch = true;
+        }
+      });
+
+      if (foundMatch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>

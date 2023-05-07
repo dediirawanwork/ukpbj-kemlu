@@ -1,0 +1,15 @@
+{
+  "name": "ukpbj-kemlu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "buold": "eleventy"
+  },
+  "author": "Dedi",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
